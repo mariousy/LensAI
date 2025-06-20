@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		509624D32E050347007E1755 /* TranslateInPlace.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 509624C92E050347007E1755 /* TranslateInPlace.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		509624A92E05033D007E1755 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,28 +25,58 @@
 			remoteGlobalIDString = 5096249A2E05033C007E1755;
 			remoteInfo = ImageTranslator;
 		};
+		509624D12E050347007E1755 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 509624932E05033C007E1755 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 509624C82E050347007E1755;
+			remoteInfo = TranslateInPlace;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		509624D82E050347007E1755 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				509624D32E050347007E1755 /* TranslateInPlace.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		5096249B2E05033C007E1755 /* ImageTranslator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageTranslator.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		509624A82E05033D007E1755 /* ImageTranslatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageTranslatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		509624B22E05033D007E1755 /* ImageTranslatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageTranslatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5096249B2E05033C007E1755 /* LensAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LensAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		509624A82E05033D007E1755 /* LensAITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LensAITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		509624B22E05033D007E1755 /* LensAIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LensAIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		509624C92E050347007E1755 /* TranslateInPlace.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TranslateInPlace.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		504F0BB82E06227300EE6D6F /* Exceptions for "TranslateInPlace" folder in "TranslateInPlace" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 509624C82E050347007E1755 /* TranslateInPlace */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		5096249D2E05033C007E1755 /* ImageTranslator */ = {
+		5096249D2E05033C007E1755 /* LensAI */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ImageTranslator;
+			path = LensAI;
 			sourceTree = "<group>";
 		};
-		509624AB2E05033D007E1755 /* ImageTranslatorTests */ = {
+		509624CA2E050347007E1755 /* TranslateInPlace */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ImageTranslatorTests;
-			sourceTree = "<group>";
-		};
-		509624B52E05033D007E1755 /* ImageTranslatorUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ImageTranslatorUITests;
+			exceptions = (
+				504F0BB82E06227300EE6D6F /* Exceptions for "TranslateInPlace" folder in "TranslateInPlace" target */,
+			);
+			path = TranslateInPlace;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -69,15 +103,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		509624C62E050347007E1755 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		509624922E05033C007E1755 = {
 			isa = PBXGroup;
 			children = (
-				5096249D2E05033C007E1755 /* ImageTranslator */,
-				509624AB2E05033D007E1755 /* ImageTranslatorTests */,
-				509624B52E05033D007E1755 /* ImageTranslatorUITests */,
+				5096249D2E05033C007E1755 /* LensAI */,
+				509624CA2E050347007E1755 /* TranslateInPlace */,
 				5096249C2E05033C007E1755 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,9 +125,10 @@
 		5096249C2E05033C007E1755 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5096249B2E05033C007E1755 /* ImageTranslator.app */,
-				509624A82E05033D007E1755 /* ImageTranslatorTests.xctest */,
-				509624B22E05033D007E1755 /* ImageTranslatorUITests.xctest */,
+				5096249B2E05033C007E1755 /* LensAI.app */,
+				509624A82E05033D007E1755 /* LensAITests.xctest */,
+				509624B22E05033D007E1755 /* LensAIUITests.xctest */,
+				509624C92E050347007E1755 /* TranslateInPlace.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,31 +136,33 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5096249A2E05033C007E1755 /* ImageTranslator */ = {
+		5096249A2E05033C007E1755 /* LensAI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 509624BC2E05033D007E1755 /* Build configuration list for PBXNativeTarget "ImageTranslator" */;
+			buildConfigurationList = 509624BC2E05033D007E1755 /* Build configuration list for PBXNativeTarget "LensAI" */;
 			buildPhases = (
 				509624972E05033C007E1755 /* Sources */,
 				509624982E05033C007E1755 /* Frameworks */,
 				509624992E05033C007E1755 /* Resources */,
+				509624D82E050347007E1755 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				509624D22E050347007E1755 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				5096249D2E05033C007E1755 /* ImageTranslator */,
+				5096249D2E05033C007E1755 /* LensAI */,
 			);
-			name = ImageTranslator;
+			name = LensAI;
 			packageProductDependencies = (
 			);
 			productName = ImageTranslator;
-			productReference = 5096249B2E05033C007E1755 /* ImageTranslator.app */;
+			productReference = 5096249B2E05033C007E1755 /* LensAI.app */;
 			productType = "com.apple.product-type.application";
 		};
-		509624A72E05033D007E1755 /* ImageTranslatorTests */ = {
+		509624A72E05033D007E1755 /* LensAITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 509624BF2E05033D007E1755 /* Build configuration list for PBXNativeTarget "ImageTranslatorTests" */;
+			buildConfigurationList = 509624BF2E05033D007E1755 /* Build configuration list for PBXNativeTarget "LensAITests" */;
 			buildPhases = (
 				509624A42E05033D007E1755 /* Sources */,
 				509624A52E05033D007E1755 /* Frameworks */,
@@ -130,19 +173,16 @@
 			dependencies = (
 				509624AA2E05033D007E1755 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				509624AB2E05033D007E1755 /* ImageTranslatorTests */,
-			);
-			name = ImageTranslatorTests;
+			name = LensAITests;
 			packageProductDependencies = (
 			);
 			productName = ImageTranslatorTests;
-			productReference = 509624A82E05033D007E1755 /* ImageTranslatorTests.xctest */;
+			productReference = 509624A82E05033D007E1755 /* LensAITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		509624B12E05033D007E1755 /* ImageTranslatorUITests */ = {
+		509624B12E05033D007E1755 /* LensAIUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 509624C22E05033D007E1755 /* Build configuration list for PBXNativeTarget "ImageTranslatorUITests" */;
+			buildConfigurationList = 509624C22E05033D007E1755 /* Build configuration list for PBXNativeTarget "LensAIUITests" */;
 			buildPhases = (
 				509624AE2E05033D007E1755 /* Sources */,
 				509624AF2E05033D007E1755 /* Frameworks */,
@@ -153,15 +193,34 @@
 			dependencies = (
 				509624B42E05033D007E1755 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				509624B52E05033D007E1755 /* ImageTranslatorUITests */,
-			);
-			name = ImageTranslatorUITests;
+			name = LensAIUITests;
 			packageProductDependencies = (
 			);
 			productName = ImageTranslatorUITests;
-			productReference = 509624B22E05033D007E1755 /* ImageTranslatorUITests.xctest */;
+			productReference = 509624B22E05033D007E1755 /* LensAIUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		509624C82E050347007E1755 /* TranslateInPlace */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 509624D52E050347007E1755 /* Build configuration list for PBXNativeTarget "TranslateInPlace" */;
+			buildPhases = (
+				509624C52E050347007E1755 /* Sources */,
+				509624C62E050347007E1755 /* Frameworks */,
+				509624C72E050347007E1755 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				509624CA2E050347007E1755 /* TranslateInPlace */,
+			);
+			name = TranslateInPlace;
+			packageProductDependencies = (
+			);
+			productName = TranslateInPlace;
+			productReference = 509624C92E050347007E1755 /* TranslateInPlace.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -184,9 +243,12 @@
 						CreatedOnToolsVersion = 16.4;
 						TestTargetID = 5096249A2E05033C007E1755;
 					};
+					509624C82E050347007E1755 = {
+						CreatedOnToolsVersion = 16.4;
+					};
 				};
 			};
-			buildConfigurationList = 509624962E05033C007E1755 /* Build configuration list for PBXProject "ImageTranslator" */;
+			buildConfigurationList = 509624962E05033C007E1755 /* Build configuration list for PBXProject "LensAI" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -200,9 +262,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5096249A2E05033C007E1755 /* ImageTranslator */,
-				509624A72E05033D007E1755 /* ImageTranslatorTests */,
-				509624B12E05033D007E1755 /* ImageTranslatorUITests */,
+				5096249A2E05033C007E1755 /* LensAI */,
+				509624A72E05033D007E1755 /* LensAITests */,
+				509624B12E05033D007E1755 /* LensAIUITests */,
+				509624C82E050347007E1755 /* TranslateInPlace */,
 			);
 		};
 /* End PBXProject section */
@@ -223,6 +286,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		509624B02E05033D007E1755 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		509624C72E050347007E1755 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,18 +323,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		509624C52E050347007E1755 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		509624AA2E05033D007E1755 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5096249A2E05033C007E1755 /* ImageTranslator */;
+			target = 5096249A2E05033C007E1755 /* LensAI */;
 			targetProxy = 509624A92E05033D007E1755 /* PBXContainerItemProxy */;
 		};
 		509624B42E05033D007E1755 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5096249A2E05033C007E1755 /* ImageTranslator */;
+			target = 5096249A2E05033C007E1755 /* LensAI */;
 			targetProxy = 509624B32E05033D007E1755 /* PBXContainerItemProxy */;
+		};
+		509624D22E050347007E1755 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 509624C82E050347007E1755 /* TranslateInPlace */;
+			targetProxy = 509624D12E050347007E1755 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -410,7 +492,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mariousyousif.ImageTranslator;
+				PRODUCT_BUNDLE_IDENTIFIER = mariousyousif.LensAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -438,7 +520,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mariousyousif.ImageTranslator;
+				PRODUCT_BUNDLE_IDENTIFIER = mariousyousif.LensAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -461,7 +543,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageTranslator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ImageTranslator";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LensAI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LensAI";
 			};
 			name = Debug;
 		};
@@ -480,7 +562,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageTranslator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ImageTranslator";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LensAI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LensAI";
 			};
 			name = Release;
 		};
@@ -518,10 +600,60 @@
 			};
 			name = Release;
 		};
+		509624D62E050347007E1755 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G5XBN5ZP6H;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TranslateInPlace/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TranslateInPlace;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mariousyousif.LensAI.TranslateInPlace;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		509624D72E050347007E1755 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G5XBN5ZP6H;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TranslateInPlace/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TranslateInPlace;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mariousyousif.LensAI.TranslateInPlace;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		509624962E05033C007E1755 /* Build configuration list for PBXProject "ImageTranslator" */ = {
+		509624962E05033C007E1755 /* Build configuration list for PBXProject "LensAI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				509624BA2E05033D007E1755 /* Debug */,
@@ -530,7 +662,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		509624BC2E05033D007E1755 /* Build configuration list for PBXNativeTarget "ImageTranslator" */ = {
+		509624BC2E05033D007E1755 /* Build configuration list for PBXNativeTarget "LensAI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				509624BD2E05033D007E1755 /* Debug */,
@@ -539,7 +671,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		509624BF2E05033D007E1755 /* Build configuration list for PBXNativeTarget "ImageTranslatorTests" */ = {
+		509624BF2E05033D007E1755 /* Build configuration list for PBXNativeTarget "LensAITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				509624C02E05033D007E1755 /* Debug */,
@@ -548,11 +680,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		509624C22E05033D007E1755 /* Build configuration list for PBXNativeTarget "ImageTranslatorUITests" */ = {
+		509624C22E05033D007E1755 /* Build configuration list for PBXNativeTarget "LensAIUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				509624C32E05033D007E1755 /* Debug */,
 				509624C42E05033D007E1755 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		509624D52E050347007E1755 /* Build configuration list for PBXNativeTarget "TranslateInPlace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				509624D62E050347007E1755 /* Debug */,
+				509624D72E050347007E1755 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
