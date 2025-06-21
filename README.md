@@ -7,12 +7,6 @@ LensAI is a powerful iOS Share Extension that uses on-device machine learning to
 
 ---
 
-## 🎥 Demo
-
-[Insert a GIF or link to your app demo video here]
-
----
-
 ## ✨ Features
 
 - **On-Device Translation**: Uses Apple's native `Translation` framework for fast, private, and offline-capable translations.
@@ -37,17 +31,19 @@ LensAI is built entirely with native Apple frameworks, ensuring optimal performa
 
 ---
 
+
 ## 🖼 Screenshots
 
 | Original Image                  | Translated Image                |
 |--------------------------------|----------------------------------|
-| [Placeholder for Screenshot 1] | [Placeholder for Screenshot 2]   |
+| ![IMG_5010](https://github.com/user-attachments/assets/0df9159c-e9e2-4881-8291-97e65826023c) | ![IMG_C58EEB3EA286-1](https://github.com/user-attachments/assets/f72c8c25-3bbb-4273-ae97-d515d7547c5b) |
 
-| Language Picker                 | Error Handling                  |
-|--------------------------------|----------------------------------|
-| [Placeholder for Screenshot 3] | [Placeholder for Screenshot 4]   |
+| Language Picker                |
+|--------------------------------|
+| ![IMG_18060B31FD43-1](https://github.com/user-attachments/assets/01f4d717-518d-4114-ac08-426c1d58b19c) | 
 
 ---
+
 
 ## 🚀 How to Use
 
