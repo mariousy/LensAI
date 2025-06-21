@@ -32,15 +32,17 @@ LensAI is built entirely with native Apple frameworks, ensuring optimal performa
 ---
 
 
+
+
 ## 🖼 Screenshots
 
 | Original Image                  | Translated Image                |
 |--------------------------------|----------------------------------|
-| ![IMG_5010](https://github.com/user-attachments/assets/0df9159c-e9e2-4881-8291-97e65826023c) | ![IMG_C58EEB3EA286-1](https://github.com/user-attachments/assets/f72c8c25-3bbb-4273-ae97-d515d7547c5b) |
+| ![IMG_5010](https://github.com/user-attachments/assets/0df9159c-e9e2-4881-8291-97e65826023c) | ![IMG_C58EEB3EA286-1 (1)](https://github.com/user-attachments/assets/e3f75e1f-2062-43a7-b907-5f1a8399fed0) |
 
 | Language Picker                |
 |--------------------------------|
-| ![IMG_18060B31FD43-1](https://github.com/user-attachments/assets/01f4d717-518d-4114-ac08-426c1d58b19c) | 
+| ![IMG_18060B31FD43-1 (1)](https://github.com/user-attachments/assets/6001569e-ad31-4981-8a92-621f7bef245e) | 
 
 ---
 
