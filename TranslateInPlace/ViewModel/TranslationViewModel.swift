@@ -207,7 +207,7 @@ class TranslationViewModel {
                     }
 
                     if var initialImage = image {
-                        initialImage = self.resizeImage(image: initialImage, maxDimension: 1024)
+                        initialImage = self.resizeImage(image: initialImage, maxDimension: 2048)
                         
                         self.sourceImage = initialImage
                         self.processingState = .recognizingText
@@ -252,6 +252,7 @@ class TranslationViewModel {
     }
     
     // FIX: This function now includes an intelligent grouping algorithm.
+
     private func processRecognitionResults(request: VNRequest? = nil, error: Error? = nil, refiltering: Bool = false) {
         if !refiltering {
             guard let results = request?.results as? [VNRecognizedTextObservation], !results.isEmpty else {
@@ -309,10 +310,17 @@ class TranslationViewModel {
             finishedGroups.append(currentGroup)
         }
         
+        // --- NEW: Smarter Joining Logic ---
         // 3. Convert the finalized groups into our data model.
         for group in finishedGroups {
-            let combinedText = group.map { $0.topCandidates(1).first!.string }.joined(separator: "\n")
             
+            // a. Sort the words in each group from left-to-right to ensure correct sentence order.
+            let horizontallySortedGroup = group.sorted { $0.boundingBox.minX < $1.boundingBox.minX }
+            
+            // b. Join the words with a SPACE, not a newline, to preserve the phrase context.
+            let combinedText = horizontallySortedGroup.map { $0.topCandidates(1).first!.string }.joined(separator: " ")
+
+            // c. Combine the bounding boxes for the entire group to draw one bubble.
             var combinedBox = CGRect.null
             for observation in group {
                 let box = VNImageRectForNormalizedRect(observation.boundingBox, Int(imageSize.width), Int(imageSize.height))
@@ -351,65 +359,99 @@ class TranslationViewModel {
             }
         }
     }
-    
+
     // MARK: - Step 4: Render Final Image (Core Image & Core Graphics)
-    
+        
+    // In TranslationViewModel.swift
+
+    // MARK: - Step 4: Render Final Image (Core Image & Core Graphics)
+        
+    // In TranslationViewModel.swift
+
+    // MARK: - Step 4: Render Final Image (Core Image & Core Graphics)
+        
     private func renderFinalImage(with translatedTexts: [String]) {
         guard let sourceImage = self.sourceImage else { return }
         
         DispatchQueue.global(qos: .userInitiated).async {
-            let overallAverageColor = self.getAverageColor(from: sourceImage, in: CGRect(origin: .zero, size: sourceImage.size)) ?? .darkGray
-            let uniformBubbleColor = overallAverageColor.lightened()
-            let uniformTextColor = uniformBubbleColor.isLight ? UIColor.black : UIColor.white
-            
             let renderer = UIGraphicsImageRenderer(size: sourceImage.size)
             let finalImage = renderer.image { context in
+                // 1. Draw the original image.
                 sourceImage.draw(at: .zero)
                 
                 for (index, group) in self.groupedTextToTranslate.enumerated() {
                     guard index < translatedTexts.count else { continue }
                     
                     let translatedText = translatedTexts[index]
-                    let rect = group.combinedBoundingBox
+                    let originalBounds = group.combinedBoundingBox
+
+                    // --- Draw the Background Bubble ---
+                    let bubbleRect = originalBounds.insetBy(dx: -8, dy: -4)
+                    let averageColor = self.getAverageColor(from: sourceImage, in: originalBounds) ?? .darkGray
+                    let bubbleColor = averageColor.lightened()
+                    let textColor = bubbleColor.isLight ? UIColor.black : UIColor.white
                     
-                    let bubblePath = UIBezierPath(roundedRect: rect.insetBy(dx: -8, dy: -4), cornerRadius: 8)
-                    uniformBubbleColor.setFill()
+                    let bubblePath = UIBezierPath(roundedRect: bubbleRect, cornerRadius: 8)
+                    bubbleColor.setFill()
                     bubblePath.fill()
+
+                    // --- NEW: Render Text to an Image First ---
+                    let textImage = self.createImage(from: translatedText, with: textColor, in: originalBounds.size)
+
+                    // --- Scale and Draw the Text Image ---
+                    let availableRect = originalBounds.insetBy(dx: 4, dy: 4) // Padded area for text
+                    let aspectRatio = textImage.size.width / textImage.size.height
                     
-                    let paragraphStyle = NSMutableParagraphStyle()
-                    paragraphStyle.alignment = .center
-                    paragraphStyle.lineBreakMode = .byWordWrapping
-                    
-                    var fontSize: CGFloat = rect.height / CGFloat(translatedText.components(separatedBy: "\n").count)
-                    var font = UIFont.systemFont(ofSize: fontSize, weight: .semibold)
-                    
-                    var attributes: [NSAttributedString.Key: Any] = [
-                        .paragraphStyle: paragraphStyle,
-                        .foregroundColor: uniformTextColor,
-                        .font: font
-                    ]
-                    
-                    var attributedText = NSAttributedString(string: translatedText, attributes: attributes)
-                    
-                    while attributedText.boundingRect(with: rect.size, options: .usesLineFragmentOrigin, context: nil).height > rect.height {
-                        fontSize -= 1
-                        if fontSize <= 5 { break }
-                        font = UIFont.systemFont(ofSize: fontSize, weight: .semibold)
-                        attributes[.font] = font
-                        attributedText = NSAttributedString(string: translatedText, attributes: attributes)
+                    var finalSize = availableRect.size
+                    if finalSize.width / aspectRatio > finalSize.height {
+                        finalSize.width = finalSize.height * aspectRatio
+                    } else {
+                        finalSize.height = finalSize.width / aspectRatio
                     }
                     
-                    let textHeight = attributedText.boundingRect(with: rect.size, options: .usesLineFragmentOrigin, context: nil).height
-                    let centeredRect = CGRect(x: rect.origin.x, y: rect.origin.y + (rect.height - textHeight) / 2, width: rect.width, height: textHeight)
-                    
-                    attributedText.draw(in: centeredRect)
+                    // Center the final text image within the bubble.
+                    let finalX = originalBounds.midX - (finalSize.width / 2)
+                    let finalY = originalBounds.midY - (finalSize.height / 2)
+                    let drawingRect = CGRect(x: finalX, y: finalY, width: finalSize.width, height: finalSize.height)
+
+                    textImage.draw(in: drawingRect)
                 }
             }
 
+            // Return to the main thread to update the UI.
             DispatchQueue.main.async {
                 self.finalImage = finalImage
                 self.processingState = .finished(finalImage)
             }
+        }
+    }
+
+    // --- NEW HELPER FUNCTION ---
+    // Add this new function inside the TranslationViewModel class.
+
+    /// Creates a UIImage by rendering an attributed string.
+    private func createImage(from text: String, with color: UIColor, in maxSize: CGSize) -> UIImage {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        paragraphStyle.lineBreakMode = .byWordWrapping
+        
+        // Start with a large font size.
+        let font = UIFont.systemFont(ofSize: 100, weight: .semibold)
+
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: font,
+            .foregroundColor: color,
+            .paragraphStyle: paragraphStyle
+        ]
+        
+        let attributedString = NSAttributedString(string: text, attributes: attributes)
+        
+        // Let the string tell us how big it wants to be.
+        let desiredSize = attributedString.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 100), options: .usesLineFragmentOrigin, context: nil)
+
+        let renderer = UIGraphicsImageRenderer(size: desiredSize.size)
+        return renderer.image { context in
+            attributedString.draw(in: CGRect(origin: .zero, size: desiredSize.size))
         }
     }
     
